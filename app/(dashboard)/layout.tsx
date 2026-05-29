@@ -1,12 +1,13 @@
 import Sidebar from "@/components/layout/Sidebar";
-import { MeshBackground } from "@/components/ui/primitives";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex h-screen overflow-hidden relative z-10">
-      <MeshBackground />
-      <Sidebar />
-      {children}
-    </div>
+    <ThemeProvider>
+      <div className="flex h-screen overflow-hidden" style={{ background: "var(--background)" }}>
+        <Sidebar />
+        {children}
+      </div>
+    </ThemeProvider>
   );
 }
